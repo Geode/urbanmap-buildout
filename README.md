@@ -52,7 +52,7 @@ See http://www.imio.be/support/documentation/tutoriels/utilisation-dun-buildout/
 
 We download the buildout files in our folder
 > cd /srv/urbanmap
-> svn co http://svn.communesplone.org/svn/communesplone/buildout/mapfish/tags/mapfish2.2 mapfish2.2
+> git clone https://github.com/Geode/urbanmap-buildout.git mapfish2.2
 > cd mapfish2.2
 
 We modify the Makefile file to indicate the real path of the virtualenv utility. 
