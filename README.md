@@ -63,10 +63,5 @@ OR (my preference)
 You can create a link to our virtualenv without modifying Makefile
     "ln -s /srv/python273/bin/virtualenv /usr/local/bin/virtualenv-2.7"
 
-we initialize the buildout
-> make bootstrap
-
-We execute the buildout after each modification in the buildout.cfg file
-> make buildout
-OR
-> bin/buildout -Nv
+initialize and execute the buildout after each modification in the buildout.cfg file
+> make
