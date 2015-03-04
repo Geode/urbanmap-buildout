@@ -1,11 +1,11 @@
 #!/usr/bin/make
 #
 
-all: run
+all: bootstrap buildout
 
 .PHONY: bootstrap
 bootstrap:
-	virtualenv-2.6 --no-site-packages .
+	virtualenv-2.7 --no-site-packages .
 	./bin/python bootstrap.py
 
 .PHONY: buildout
