@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  postgis:
+      build: Dockerfiles/postgis/
+      hostname: postgis
+      ports:
+          - 5432:5432
+      volumes:
+          - ./postgres_data:/var/lib/postgresql
+
+  urbanmap:
+      build: .
+      hostname: urbanmap
+      ports:
+          - 8000:8000
+      volumes:
+          - ./configuration.ini:/srv/urbanmap_buildout/geode.urbanmap/configuration.ini
+          - ./config.yaml:/srv/urbanmap_buildout/geode.urbanmap/print/config.yaml
+
+  nginx:
+      image: nginx:latest
+      ports:
+          - 80:80
+      volumes:
+          - ./nginx-default.conf:/etc/nginx/conf.d/default.conf

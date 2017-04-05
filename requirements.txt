@@ -1,0 +1,9 @@
+psycopg2
+GeoAlchemy == 0.7.2
+Pylons == 1.0
+SQLAlchemy == 0.7.2
+Shapely == 1.4.3
+WebOb == 0.9.8
+WebTest == 1.2.1
+mapfish == 2.2
+pastedeploy == 1.5.2

@@ -1,0 +1,340 @@
+#===========================================================================
+# allowed DPIs
+#===========================================================================
+dpis: [254, 190, 127]
+
+#===========================================================================
+# allowed Formats
+#===========================================================================
+formats: ['*']
+
+#===========================================================================
+# the allowed scales
+#===========================================================================
+scales:
+  - 250
+  - 500
+  - 750
+  - 1000
+  - 2500
+  - 5000
+  - 10000
+  - 20000
+
+#===========================================================================
+# the list of allowed hosts
+#===========================================================================
+hosts:
+  - !localMatch
+    dummy: true
+  - !ipMatch
+    ip: www.camptocamp.org
+  - !dnsMatch
+    host: labs.metacarta.com
+    port: 80
+  - !dnsMatch
+    host: terraservice.net
+    port: 80
+  - !dnsMatch
+    host: tile.openstreetmap.org
+    port: 80
+  - !ipMatch
+    ip: 89.16.179.114
+    port: 8008
+  - !dnsMatch
+    host: cartopro1.wallonie.be
+    port: 80
+  - !dnsMatch
+    host: cartopro2.wallonie.be
+    port: 80
+  - !dnsMatch
+    host: cartocit2.wallonie.be
+    port: 80
+  - !dnsMatch
+    host: geoservices.wallonie.be
+    port: 80
+  - !dnsMatch
+    host: geonode.imio.be
+    port: 443
+  - !dnsMatch
+    host: webgisdgo4.spw.wallonie.be
+    port: 80
+
+
+layouts:
+  #===========================================================================
+  A3 portrait:
+  #===========================================================================
+    metaData:
+      title: '${title}'
+      author: 'UrbanMap print module'
+      subject: 'Simple layout'
+      keywords: 'map,print,geode,urbanmap'
+      creator: 'IMIO'
+
+    #-------------------------------------------------------------------------
+    mainPage:
+      pageSize: A3
+      rotation: true
+      items:
+        - !map
+          spacingAfter: 10
+          width: 700
+          height: 1000
+        - !columns
+          # columns can have an absolute position. In that case, they need the 3 following fields:
+          absoluteX: 1000
+          absoluteY: 100
+          width: 100
+          items:
+            - !scalebar
+              type: bar
+              maxSize: 100
+              barBgColor: white
+              fontSize: 8
+              align: right
+        - !text
+          font: Helvetica
+          fontSize: 9
+          align: right
+          text: '1:${scale} ${now MM.dd.yyyy}'
+        - !text
+          text: '${comment}'
+          spacingAfter: 30
+        - !attributes
+          source: data
+          spacingAfter: 30
+          columnDefs:
+            id:
+              columnWeight: 2
+              header: !text
+                text: ID
+                backgroundColor: #A0A0A0
+              cell: !text
+                text: '${id}'
+            name:
+              columnWeight: 5
+              header: !text
+                text: Name
+                backgroundColor: #A0A0A0
+              cell: !columns
+                config:
+                  cells:
+                    - backgroundColor: '${nameBackgroundColor}'
+                      borderWidth: 1
+                      borderColor: '${nameBorderColor}'
+                items:
+                  - !text
+                    text: '${name}'
+
+
+  #===========================================================================
+  A3 paysage:
+  #===========================================================================
+    metaData:
+      title: '${title}'
+      author: 'UrbanMap print module'
+      subject: 'Simple layout'
+      keywords: 'map,print,geode,urbanmap'
+      creator: 'IMIO'
+
+    #-------------------------------------------------------------------------
+    mainPage:
+      pageSize: A3
+      landscape: true
+      rotation: true
+      items:
+        - !map
+          spacingAfter: 5
+          spacingBefore: 20
+          width: 1000
+          height: 700
+        - !columns
+          # columns can have an absolute position. In that case, they need the 3 following fields:
+          absoluteX: 1000
+          absoluteY: 150
+          width: 100
+          items:
+            - !scalebar
+              type: bar
+              maxSize: 100
+              barBgColor: white
+              fontSize: 8
+              align: right
+        - !text
+          font: Helvetica
+          fontSize: 9
+          align: right
+          text: '1:${scale} ${now MM.dd.yyyy}'
+        - !text
+          text: '${comment}'
+          spacingAfter: 10
+        - !attributes
+          source: data
+          spacingAfter: 10
+          columnDefs:
+            id:
+              columnWeight: 2
+              header: !text
+                text: ID
+                backgroundColor: #A0A0A0
+              cell: !text
+                text: '${id}'
+            name:
+              columnWeight: 5
+              header: !text
+                text: Name
+                backgroundColor: #A0A0A0
+              cell: !columns
+                config:
+                  cells:
+                    - backgroundColor: '${nameBackgroundColor}'
+                      borderWidth: 1
+                      borderColor: '${nameBorderColor}'
+                items:
+                  - !text
+                    text: '${name}'
+
+
+
+  #===========================================================================
+  A4 landscape:
+  #===========================================================================
+    metaData:
+      title: '${title}'
+      author: 'UrbanMap print module'
+      subject: 'Simple layout'
+      keywords: 'map,print,geode,urbanmap'
+      creator: 'IMIO'
+
+    #-------------------------------------------------------------------------
+    mainPage:
+      pageSize: A4
+      landscape: true
+      rotation: true
+      items:
+        - !map
+          spacingAfter: 5
+          width: 750
+          height: 500
+        - !columns
+          # columns can have an absolute position. In that case, they need the 3 following fields:
+          absoluteX: 700
+          absoluteY: 100
+          width: 100
+          items:
+            - !scalebar
+              type: bar
+              maxSize: 100
+              barBgColor: white
+              fontSize: 8
+              align: right
+        - !text
+          font: Helvetica
+          fontSize: 9
+          align: right
+          text: '1:${scale} ${now MM.dd.yyyy}'
+        - !text
+          text: '${comment}'
+          spacingAfter: 5
+        - !attributes
+          source: data
+          spacingAfter: 0
+          columnDefs:
+            id:
+              columnWeight: 2
+              header: !text
+                text: ID
+                backgroundColor: #A0A0A0
+              cell: !text
+                text: '${id}'
+            name:
+              columnWeight: 5
+              header: !text
+                text: Name
+                backgroundColor: #A0A0A0
+              cell: !columns
+                config:
+                  cells:
+                    - backgroundColor: '${nameBackgroundColor}'
+                      borderWidth: 1
+                      borderColor: '${nameBorderColor}'
+                items:
+                  - !text
+                    text: '${name}'
+
+
+  #===========================================================================
+  A4 portrait:
+  #===========================================================================
+    metaData:
+      title: '${title}'
+      author: 'UrbanMap print module'
+      subject: 'Simple layout'
+      keywords: 'map,print,geode,urbanmap'
+      creator: 'IMIO'
+
+    #-------------------------------------------------------------------------
+    mainPage:
+      pageSize: A4
+      rotation: true
+      items:
+        - !map
+          spacingAfter: 30
+          width: 483
+          height: 700
+        - !columns
+          # columns can have an absolute position. In that case, they need the 3 following fields:
+          absoluteX: 410
+          absoluteY: 150
+          width: 100
+          items:
+            - !scalebar
+              type: bar
+              maxSize: 100
+              barBgColor: white
+              fontSize: 8
+              align: right
+        - !text
+          font: Helvetica
+          fontSize: 9
+          align: right
+          text: '1:${scale} ${now MM.dd.yyyy}'
+        - !text
+          text: '${comment}'
+          spacingAfter: 5
+        - !attributes
+          source: data
+          spacingAfter: 5
+          columnDefs:
+            id:
+              columnWeight: 2
+              header: !text
+                text: ID
+                backgroundColor: #A0A0A0
+              cell: !text
+                text: '${id}'
+            name:
+              columnWeight: 5
+              header: !text
+                text: Name
+                backgroundColor: #A0A0A0
+              cell: !columns
+                config:
+                  cells:
+                    - backgroundColor: '${nameBackgroundColor}'
+                      borderWidth: 1
+                      borderColor: '${nameBorderColor}'
+                items:
+                  - !text
+                    text: '${name}'
+            icon:
+              columnWeight: 2
+              header: !text
+                text: Symbol
+                backgroundColor: #A0A0A0
+              cell: !image
+                align: center
+                maxWidth: 15
+                maxHeight: 15
+                url: 'http://www.mapfish.org/svn/mapfish/framework/client/trunk/mfbase/mapfish/img/${icon}.png'
