@@ -59,7 +59,12 @@ hosts:
   - !dnsMatch
     host: webgisdgo4.spw.wallonie.be
     port: 80
-
+  - !dnsMatch
+    host: imio-app.be
+    port: 80
+  - !dnsMatch
+    host: *.imio-app.be
+    port: 80
 
 layouts:
   #===========================================================================
